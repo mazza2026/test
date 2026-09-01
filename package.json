@@ -1,0 +1,11 @@
+{
+  "name": "spk-saw-sederhana",
+  "version": "1.0.0",
+  "description": "Aplikasi SPK (Sistem Pendukung Keputusan) sederhana dengan metode SAW",
+  "private": true,
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "start": "npx --yes http-server . -p 8080"
+  },
+  "license": "MIT"
+}

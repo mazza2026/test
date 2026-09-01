@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aplikasi SPK Sederhana (Metode SAW)</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Aplikasi SPK Sederhana</h1>
+      <p>Sistem Pendukung Keputusan dengan metode SAW (Simple Additive Weighting).</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <div class="card-head">
+          <h2>1. Kriteria</h2>
+          <button type="button" id="add-criterion" class="btn">+ Tambah Kriteria</button>
+        </div>
+        <p class="hint">
+          Bobot boleh diisi angka bebas (mis. 5, 3, 2); bobot akan dinormalkan otomatis sehingga totalnya 1.
+          Pilih <strong>Benefit</strong> bila nilai makin besar makin baik, atau <strong>Cost</strong> bila makin kecil makin baik.
+        </p>
+        <div class="table-wrap">
+          <table id="criteria-table">
+            <thead>
+              <tr>
+                <th>Nama Kriteria</th>
+                <th>Bobot</th>
+                <th>Tipe</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>2. Alternatif</h2>
+          <button type="button" id="add-alternative" class="btn">+ Tambah Alternatif</button>
+        </div>
+        <p class="hint">Isi nilai setiap alternatif untuk masing-masing kriteria (angka &ge; 0).</p>
+        <div class="table-wrap">
+          <table id="alternatives-table">
+            <thead>
+              <tr></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>3. Perhitungan</h2>
+          <div class="actions">
+            <button type="button" id="load-sample" class="btn btn-secondary">Muat Contoh Data</button>
+            <button type="button" id="reset" class="btn btn-secondary">Reset</button>
+            <button type="button" id="calculate" class="btn btn-primary">Hitung Peringkat</button>
+          </div>
+        </div>
+        <div id="messages" class="messages" role="alert" aria-live="polite"></div>
+        <div id="results" class="results" hidden>
+          <h3>Bobot Ternormalisasi</h3>
+          <div class="table-wrap">
+            <table id="weights-table">
+              <thead>
+                <tr></tr>
+              </thead>
+              <tbody>
+                <tr></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Matriks Ternormalisasi (R)</h3>
+          <div class="table-wrap">
+            <table id="matrix-table">
+              <thead>
+                <tr></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <h3>Hasil Peringkat</h3>
+          <div class="table-wrap">
+            <table id="ranking-table">
+              <thead>
+                <tr>
+                  <th>Peringkat</th>
+                  <th>Alternatif</th>
+                  <th>Nilai Preferensi (V)</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p id="conclusion" class="conclusion"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>Data tersimpan otomatis di peramban Anda (localStorage).</p>
+    </footer>
+
+    <script src="src/saw.js"></script>
+    <script src="src/app.js"></script>
+  </body>
+</html>
